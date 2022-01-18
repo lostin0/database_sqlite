@@ -14,9 +14,13 @@ public class Main {
         
         // SQL statement for creating a new table
         String sql = "CREATE TABLE IF NOT EXISTS Movies (\n"
-                + "	m_id integer PRIMARY KEY,\n"
-                + "	m_name text NOT NULL,\n"
-                + "	capacity real\n"
+                + "	id integer PRIMARY KEY,\n"
+                + "	name text NOT NULL,\n"
+                + " actor text NOT NULL,\n"
+                + " actress text NOT NULL,\n"
+                + " director text NOT NULL,\n"
+                + " year integer NOT NULL,\n"
+                
                 + ");";
         
         try (Connection conn = DriverManager.getConnection(url);
