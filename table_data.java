@@ -22,13 +22,16 @@ public class InsertApp {
     }
 
    
-    public void insert(String name, double capacity) {
-        String sql = "INSERT INTO Movies(m_name,capacity) VALUES(?,?)";
+    public void insert(String name,String actor, String actress, String director, double year) {
+        String sql = "INSERT INTO Movies(name,actor,actress,director,year) VALUES(?,?)";
 
         try (Connection conn = this.connect();
                 PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setString(1, m_name);
-            pstmt.setDouble(2, capacity);
+            pstmt.setString(1, name);
+            pstmt.setString(2, actor);
+            pstmt.setString(3, actress);
+            pstmt.setString(4, director);
+            pstmt.setDouble(5, year);
             pstmt.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -42,9 +45,9 @@ public class InsertApp {
 
         InsertApp app = new InsertApp();
         // insert three new rows
-        app.insert("Bahubali2", 3000);
-        app.insert("SpiderMan Homecoming", 4000);
-        app.insert("Annabella Returns", 5000);
+        app.insert("Bahubali2", "Prabhas", "Anushka","Rajamauli", 2018);
+        app.insert("SpiderMan Homecoming", "Tom Holland", "Zendaya", "XXX", 2020);
+        app.insert("Annabella Returns", "Actor", "Actress", "YYY", 2019);
     }
 
 }
