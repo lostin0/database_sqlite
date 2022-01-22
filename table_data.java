@@ -23,7 +23,7 @@ public class InsertApp {
 
    
     public void insert(String name,String actor, String actress, String director, double year) {
-        String sql = "INSERT INTO Movies(name,actor,actress,director,year) VALUES(?,?)";
+        String sql = "INSERT INTO Movies(name,actor,actress,director,year) VALUES(?,?,?,?,?)";
 
         try (Connection conn = this.connect();
                 PreparedStatement pstmt = conn.prepareStatement(sql)) {
